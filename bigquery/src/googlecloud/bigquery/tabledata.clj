@@ -33,7 +33,9 @@
                        (mk-insert-request-row row :insert-id insert-id))
                      rows)
         request (doto (TableDataInsertAllRequest. )
-                  (.setRows data)
-                  (.setTemplateSuffix (or template-suffix "")))
+                  (.setRows data))
+        request-ts (if template-suffix
+                     (.setTemplateSuffix request template-suffix)
+                     request)
         op      (-> service (.tabledata) (.insertAll project-id dataset-id table-id request))]
     (.execute op)))

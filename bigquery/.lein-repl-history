@@ -1,0 +1,5 @@
+(in-ns 'googlecloud.bigquery.tabledata)
+(TableDataInsertAllRequest. )
+(TableDataInsertAllRequest.)
+(mk-table-row {:a 1})
+exit
